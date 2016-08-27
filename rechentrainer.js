@@ -5,71 +5,71 @@ var button = [];
 //******************************
 // M O D E L
 //******************************
-var excercise = {};
+var excercise = {
+    // create new excercise
+    createNew : function(){
+      this.number1 = Math.floor(Math.random() * (MAX_NUMBER + 1)); // 0 - 10
+      this.number2 = Math.floor(Math.random() * (MAX_NUMBER + 1 - excercise.number1));
+      this.result = excercise.number1 + excercise.number2;
+    },
 
-// create new excercise
-excercise.createNew = function(){
-  excercise.number1 = Math.floor(Math.random() * (MAX_NUMBER + 1)); // 0 - 10
-  excercise.number2 = Math.floor(Math.random() * (MAX_NUMBER + 1 - excercise.number1));
-  excercise.result = excercise.number1 + excercise.number2;
-};
-
-excercise.isRight = function(number){
-  return number === excercise.result;
+    isRight : function(number){
+      return number === this.result;
+    }
 };
 
 //******************************
 // V I E W
 //******************************
-var view = {};
+var view = {
+    getIds : function(){
+      this.labelNumber1 = document.getElementById("labelNumber1");
+      this.labelOperator = document.getElementById("labelOperator");
+      this.labelNumber2 = document.getElementById("labelNumber2");
+      this.labelResult = document.getElementById("labelResult");
+      this.labelTruth = document.getElementById("labelTruth");
+    },
 
-view.getIds = function(){
-  view.labelNumber1 = document.getElementById("labelNumber1");
-  view.labelOperator = document.getElementById("labelOperator");
-  view.labelNumber2 = document.getElementById("labelNumber2");
-  view.labelResult = document.getElementById("labelResult");
-  view.labelTruth = document.getElementById("labelTruth");
-};
+    // set number shown in left label
+    setNumber1 : function(number){
+      this.labelNumber1.innerHTML = number;
+    },
 
-// set number shown in left label
-view.setNumber1 = function(number){
-  view.labelNumber1.innerHTML = number;
-};
+    // set number shown in right label
+    setNumber2 : function(number){
+      this.labelNumber2.innerHTML = number;
+    },
 
-// set number shown in right label
-view.setNumber2 = function(number){
-  view.labelNumber2.innerHTML = number;
-};
+    // set operator shown in label
+    setOperator : function(operator){
+      this.labelOperator.innerHTML = operator;
+    },
 
-// set operator shown in label
-view.setOperator = function(operator){
-  view.labelOperator.innerHTML = operator;
-};
+    // set result shown in label
+    setResult : function(number){
+      this.labelResult.innerHTML = number;
+    },
 
-// set result shown in label
-view.setResult = function(number){
-  view.labelResult.innerHTML = number;
-};
+    showExercise : function(exc){
+      this.setNumber1(exc.number1);
+      this.setNumber2(exc.number2);
+      this.setResult("?");
+    },
 
-view.showExercise = function(exc){
-  view.setNumber1(exc.number1);
-  view.setNumber2(exc.number2);
-  view.setResult('?');
-};
+    setTrue : function(){
+      this.labelTruth.innerHTML = "RICHTIG!";
+      this.labelTruth.className = "true";
+    },
 
-view.setTrue = function(){
-  view.labelTruth.innerHTML = "RICHTIG!";
-  view.labelTruth.className = "true";
-};
+    setFalse : function(){
+      this.labelTruth.innerHTML = "FALSCH!";
+      this.labelTruth.className = "false";
+    },
 
-view.setFalse = function(){
-  view.labelTruth.innerHTML = "FALSCH!";
-  view.labelTruth.className = "false";
-};
-
-// neither true nor false
-view.setNeitherNor = function() {
-  view.labelTruth.innerHTML = "";
+    // neither true nor false
+    setNeitherNor : function() {
+      this.labelTruth.innerHTML = "";
+    }
 };
 
 //******************************
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   view.getIds();
 
   // buttons + click-listener
-  for(var i = 0; i<=MAX_NUMBER; i++){
+  for(var i = 0; i <= MAX_NUMBER; i++){
     button[i] = document.getElementById("button" + i);
     button[i].addEventListener("click", buttonClicked);
   }

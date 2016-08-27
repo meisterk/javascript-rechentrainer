@@ -12,11 +12,11 @@ excercise.createNew = function(){
   excercise.number1 = Math.floor(Math.random() * (MAX_NUMBER + 1)); // 0 - 10
   excercise.number2 = Math.floor(Math.random() * (MAX_NUMBER + 1 - excercise.number1));
   excercise.result = excercise.number1 + excercise.number2;
-}
+};
 
 excercise.isRight = function(number){
   return number === excercise.result;
-}
+};
 
 //******************************
 // V I E W
@@ -29,7 +29,7 @@ view.getIds = function(){
   view.labelNumber2 = document.getElementById("labelNumber2");
   view.labelResult = document.getElementById("labelResult");
   view.labelTruth = document.getElementById("labelTruth");
-}
+};
 
 // set number shown in left label
 view.setNumber1 = function(number){
@@ -55,22 +55,22 @@ view.showExercise = function(exc){
   view.setNumber1(exc.number1);
   view.setNumber2(exc.number2);
   view.setResult('?');
-}
+};
 
 view.setTrue = function(){
   view.labelTruth.innerHTML = "RICHTIG!";
   view.labelTruth.className = "true";
-}
+};
 
 view.setFalse = function(){
   view.labelTruth.innerHTML = "FALSCH!";
   view.labelTruth.className = "false";
-}
+};
 
 // neither true nor false
 view.setNeitherNor = function() {
   view.labelTruth.innerHTML = "";
-}
+};
 
 //******************************
 // M A I N
@@ -124,4 +124,4 @@ var buttonNewClicked = function(event){
   excercise.createNew();
   view.showExercise(excercise);
   view.setNeitherNor();
-}
+};

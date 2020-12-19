@@ -3,32 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <title>Rechentrainer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="rechentrainer.css" />
   <script src="rechentrainer.js"></script>
 </head>
 <body>
-  <h1>Rechentrainer</h1>
-  <p>
-    <span id="labelNumber1">1</span>
-    <span id="labelOperator">+</span>
-    <span id="labelNumber2">2</span>
-    <span>=</span>
-    <span id="labelResult">?</span>
-    <span id="labelTruth" class="true"></span>
-    <button id="buttonNew">Neue Aufgabe</button>
-  </p>
-  <p>
-    <button id="button0">0</button>
-    <button id="button1">1</button>
-    <button id="button2">2</button>
-    <button id="button3">3</button>
-    <button id="button4">4</button>
-    <button id="button5">5</button>
-    <button id="button6">6</button>
-    <button id="button7">7</button>
-    <button id="button8">8</button>
-    <button id="button9">9</button>
-    <button id="button10">10</button>
-  </p>
+  <div class="container">
+  <h1 class="bg-light rounded p-2 m-1">Rechentrainer</h1>
+  <div class="container d-flex flex-wrap align-items-center bg-light rounded m-1 p-2">
+    <div class="d-flex m-3 fs-2">
+      <span class="m-2" id="labelNumber1">1</span>
+      <span class="m-2"id="labelOperator">+</span>
+      <span class="m-2"id="labelNumber2">2</span>
+      <span class="m-2">=</span>
+      <span class="m-2" id="labelResult">?</span>
+    </div>
+
+    <div id="labelTruth" class="alert fs-2 m-2"></div>
+  </div>
+  <div class="container d-flex flex-wrap bg-light rounded m-1">
+    <button id="button0" class="btn btn-lg btn-outline-dark m-2">0</button>
+    <button id="button1" class="btn btn-lg btn-outline-dark m-2">1</button>
+    <button id="button2" class="btn btn-lg btn-outline-dark m-2">2</button>
+    <button id="button3" class="btn btn-lg btn-outline-dark m-2">3</button>
+    <button id="button4" class="btn btn-lg btn-outline-dark m-2">4</button>
+    <button id="button5" class="btn btn-lg btn-outline-dark m-2">5</button>
+    <button id="button6" class="btn btn-lg btn-outline-dark m-2">6</button>
+    <button id="button7" class="btn btn-lg btn-outline-dark m-2">7</button>
+    <button id="button8" class="btn btn-lg btn-outline-dark m-2">8</button>
+    <button id="button9" class="btn btn-lg btn-outline-dark m-2">9</button>
+    <button id="button10" class="btn btn-lg btn-outline-dark m-2">10</button>
+  </div>
+
+  <div class="container">
+    <button id="buttonNew" class="container btn btn-primary m-2 fs-2" type="button">Neue Aufgabe</button>
+  </div>
+   
+  </div>
 </body>
 </html>
